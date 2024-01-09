@@ -14,6 +14,8 @@
 		3FA0A5A72B4DA953009B11AB /* MathBubbleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0A5A62B4DA953009B11AB /* MathBubbleTests.swift */; };
 		3FA0A5B12B4DA953009B11AB /* MathBubbleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0A5B02B4DA953009B11AB /* MathBubbleUITests.swift */; };
 		3FA0A5B32B4DA953009B11AB /* MathBubbleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0A5B22B4DA953009B11AB /* MathBubbleUITestsLaunchTests.swift */; };
+		3FA0A5C02B4DA9B7009B11AB /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0A5BF2B4DA9B7009B11AB /* Bubble.swift */; };
+		3FA0A5C22B4DAD70009B11AB /* NumberPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0A5C12B4DAD70009B11AB /* NumberPad.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		3FA0A5AC2B4DA953009B11AB /* MathBubbleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathBubbleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA0A5B02B4DA953009B11AB /* MathBubbleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathBubbleUITests.swift; sourceTree = "<group>"; };
 		3FA0A5B22B4DA953009B11AB /* MathBubbleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathBubbleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3FA0A5BF2B4DA9B7009B11AB /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
+		3FA0A5C12B4DAD70009B11AB /* NumberPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPad.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 		3FA0A5892B4DA952009B11AB = {
 			isa = PBXGroup;
 			children = (
+				3FA0A5C12B4DAD70009B11AB /* NumberPad.swift */,
+				3FA0A5BF2B4DA9B7009B11AB /* Bubble.swift */,
 				3FA0A5942B4DA952009B11AB /* MathBubble */,
 				3FA0A5A52B4DA953009B11AB /* MathBubbleTests */,
 				3FA0A5AF2B4DA953009B11AB /* MathBubbleUITests */,
@@ -257,7 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FA0A5C22B4DAD70009B11AB /* NumberPad.swift in Sources */,
 				3FA0A5982B4DA952009B11AB /* ContentView.swift in Sources */,
+				3FA0A5C02B4DA9B7009B11AB /* Bubble.swift in Sources */,
 				3FA0A5962B4DA952009B11AB /* MathBubbleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

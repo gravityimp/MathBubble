@@ -8,12 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var input = ""
+    @State var scale: CGFloat = 1.0
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Bubble()
+                .scaleEffect(scale, anchor: .center)
+                .onAppear {
+                    withAnimation(Animation.easeIn(duration: 3.0)) {
+                        self.scale = 3.0
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { print("MAX")
+                    }
+                }
         }
         .padding()
     }
