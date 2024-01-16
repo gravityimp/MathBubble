@@ -15,32 +15,34 @@ struct NumberPad: View {
         
         VStack {
             HStack {
-                NumberPadButton(content: .constant("1"))
-                NumberPadButton(content: .constant("2"))
-                NumberPadButton(content: .constant("3"))
+                NumberPadButton(viewModel: viewModel, content: "1")
+                NumberPadButton(viewModel: viewModel, content: "2")
+                NumberPadButton(viewModel: viewModel, content: "3")
             }
             
             HStack {
-                NumberPadButton(content: .constant("4"))
-                NumberPadButton(content: .constant("5"))
-                NumberPadButton(content: .constant("6"))
+                NumberPadButton(viewModel: viewModel, content: "4")
+                NumberPadButton(viewModel: viewModel, content: "5")
+                NumberPadButton(viewModel: viewModel, content: "6")
             }
             
             HStack {
-                NumberPadButton(content: .constant("7"))
-                NumberPadButton(content: .constant("8"))
-                NumberPadButton(content: .constant("9"))
+                NumberPadButton(viewModel: viewModel, content: "7")
+                NumberPadButton(viewModel: viewModel, content: "8")
+                NumberPadButton(viewModel: viewModel, content: "9")
             }
             
             HStack {
-                NumberPadButton(content: .constant("0"))
-                Button(action: {}, label: {
+                NumberPadButton(viewModel: viewModel, content: "0")
+                Button(action: {
+                    viewModel.clearInput()
+                }, label: {
                     Text("Clear")
                         .font(.title)
-                        .frame(width: 100, height: 50)
+                        .frame(width: 80, height: 40)
                         .foregroundColor(.white)
                         .background(.gray)
-                        .cornerRadius(15.0)
+                        .cornerRadius(8.0)
                         .shadow(color: Color.black, radius: 3, x: 1, y: 1)
                 })
             }

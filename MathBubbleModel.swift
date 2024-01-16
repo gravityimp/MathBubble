@@ -15,6 +15,7 @@ struct MathBubbleModel {
     public var input: String
     
     public var bubble: BubbleModel? = nil
+    public var bubbleView: Bubble? = nil
     private var difficulty: DifficultyLevel
     
     init(difficulty: DifficultyLevel) {
@@ -44,15 +45,35 @@ struct MathBubbleModel {
     }
     
     public mutating func popBubble(success: Bool) -> Bool {
-        if success {
+        if !bubble!.isTimedout {
             self.score += self.bubble!.result
         } else {
             self.health -= self.bubble!.result
             if health <= 0 {
+                health = 0
                 return false
             }
         }
         return true
+    }
+    
+    public mutating func checkBubbleResult() -> Bool {
+        var solution: Int = Int(self.input)!
+        if solution != self.bubble?.result { return false }
+        if popBubble(success: true) {
+            getMathTask()
+            clearInput()
+            return true
+        }
+        return false
+    }
+    
+    public mutating func newBubbleView(bubbleView: Bubble) {
+        self.bubbleView = bubbleView
+    }
+    
+    public mutating func scaleUp() {
+        self.bubble?.setScale(value: 3.0)
     }
     
     private mutating func getMathTask() {

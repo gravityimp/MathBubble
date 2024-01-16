@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct BottomSheet: View {
+    
+    @ObservedObject var viewModel: MathBubbleViewModel
+    let toggle: () -> ()
+    
     var body: some View {
         VStack {
             
@@ -31,13 +35,22 @@ struct BottomSheet: View {
             
             Text("Choose difficulty")
                 .font(.largeTitle)
-            Button(action: {}, label: {
+            Button(action: {
+                toggle()
+                viewModel.restart(difficulty: .easy)
+            }, label: {
                 Text("Easy")
             })
-            Button(action: {}, label: {
+            Button(action: {
+                toggle()
+                viewModel.restart(difficulty: .medium)
+            }, label: {
                 Text("Medium")
             })
-            Button(action: {}, label: {
+            Button(action: {
+                toggle()
+                viewModel.restart(difficulty: .hard)
+            }, label: {
                 Text("Hard")
             })
             
@@ -46,6 +59,6 @@ struct BottomSheet: View {
     }
 }
 
-#Preview {
-    BottomSheet()
-}
+//#Preview {
+//    BottomSheet(viewModel: MathBubbleViewModel())
+//}

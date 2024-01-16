@@ -10,24 +10,19 @@ import SwiftUI
 struct Bubble: View {
     
     var bubbleModel: BubbleModel
+    var scaleUp: () -> ()
     
-    init(_ bubbleModel: BubbleModel) {
+    init(_ bubbleModel: BubbleModel, scaleUp: @escaping () -> ()) {
         self.bubbleModel = bubbleModel
+        self.scaleUp = scaleUp
     }
-    
-    @State var scale: Double = 1.0
     
     var body: some View {
         ZStack {
             Circle()
                 .frame(width: 96, height: 96)
-                .foregroundColor(.red)
-            Text("125 + 66").foregroundColor(.white).fontWeight(.bold)
-        }
-        .scaleEffect(scale)
-        .animation(.easeIn(duration: 4.0))
-        .onAppear {
-            self.scale = 3.0
+                .foregroundColor(getCircleColor())
+            Text("\(bubbleModel.a) \(bubbleModel.getOperationString()) \(bubbleModel.b)").foregroundColor(.white).fontWeight(.bold)
         }
     }
     

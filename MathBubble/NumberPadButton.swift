@@ -13,13 +13,15 @@ struct NumberPadButton: View {
     let content: String
     
     var body: some View {
-        Button(action: {}, label: {
+        Button(action: {
+            viewModel.handleInput(input: content)
+        }, label: {
             Text(content)
                 .font(.title)
-                .frame(width: 50, height: 50)
+                .frame(width: 40, height: 40)
                 .foregroundColor(.white)
                 .background(.gray)
-                .cornerRadius(15.0)
+                .cornerRadius(8.0)
                 .shadow(color: Color.black, radius: 3, x: 1, y: 1)
         })
     }

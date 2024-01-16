@@ -14,18 +14,34 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Circle()
+            
+            Text(viewModel.currentHealth)
+                .font(.title)
+            
+            ProgressView(value: Double(viewModel.health), total: Double(viewModel.maxHealth))
+            
+            Text("Score: \(viewModel.score)")
+            
+            VStack {
+                viewModel.bubbleView
+                    .scaleEffect(self.viewModel.bubble.scale)
+                    .animation(.easeInOut(duration: 4.0))
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                            viewModel.timeoutBubble()
+                        }
+                    }
+            }.frame(minHeight: 300, maxHeight: 300)
             
             Spacer()
             
-            Text("")
+            Text(viewModel.input)
                 .font(.headline)
                 .padding(8)
-                .background(RoundedRectangle(cornerRadius: 4).stroke(Color.blue, lineWidth: 1).frame(minWidth: 150, maxWidth: 150))
+                .background(RoundedRectangle(cornerRadius: 4).stroke(Color.blue, lineWidth: 1).frame(minWidth: 150, maxWidth: 150, minHeight: 50, maxHeight: 50))
             
-            NumberPad(viewModel: viewModel)
-            
-            Spacer()
+            NumberPad(viewModel: viewModel).padding()
+        
         }
         .padding()
         .gesture(
@@ -37,8 +53,12 @@ struct ContentView: View {
                 }
         )
         .sheet(isPresented: $showSheet) {
-            BottomSheet()
+            BottomSheet(viewModel: viewModel, toggle: toggleSheet)
         }
+    }
+    
+    func toggleSheet() {
+        self.showSheet.toggle()
     }
 }
 
