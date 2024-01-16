@@ -12,6 +12,8 @@ struct MathBubbleModel {
     public var health: Int
     public var maxHealth: Int
     
+    public var input: String
+    
     public var bubble: BubbleModel? = nil
     private var difficulty: DifficultyLevel
     
@@ -29,7 +31,16 @@ struct MathBubbleModel {
         
         self.health = self.maxHealth
         self.score = 0
+        self.input = ""
         getMathTask()
+    }
+    
+    public mutating func addInput(input: String) {
+        self.input += input
+    }
+    
+    public mutating func clearInput() {
+        self.input = ""
     }
     
     public mutating func popBubble(success: Bool) -> Bool {

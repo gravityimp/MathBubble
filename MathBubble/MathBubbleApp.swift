@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MathBubbleApp: App {
+    
+    @StateObject var game = MathBubbleViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: game)
         }
     }
 }

@@ -12,6 +12,8 @@
 		3F4746952B56AEB700CF7A2C /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4746942B56AEB700CF7A2C /* Operations.swift */; };
 		3F4746972B56AF2F00CF7A2C /* BubbleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4746962B56AF2F00CF7A2C /* BubbleModel.swift */; };
 		3F4746992B56B26F00CF7A2C /* MathBubbleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4746982B56B26F00CF7A2C /* MathBubbleViewModel.swift */; };
+		3F47469B2B56BDAB00CF7A2C /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47469A2B56BDAB00CF7A2C /* BottomSheet.swift */; };
+		3F47469D2B56C22100CF7A2C /* NumberPadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47469C2B56C22100CF7A2C /* NumberPadButton.swift */; };
 		3FA0A5962B4DA952009B11AB /* MathBubbleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0A5952B4DA952009B11AB /* MathBubbleApp.swift */; };
 		3FA0A5982B4DA952009B11AB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0A5972B4DA952009B11AB /* ContentView.swift */; };
 		3FA0A59A2B4DA953009B11AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FA0A5992B4DA953009B11AB /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		3F4746942B56AEB700CF7A2C /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
 		3F4746962B56AF2F00CF7A2C /* BubbleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleModel.swift; sourceTree = "<group>"; };
 		3F4746982B56B26F00CF7A2C /* MathBubbleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathBubbleViewModel.swift; sourceTree = "<group>"; };
+		3F47469A2B56BDAB00CF7A2C /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
+		3F47469C2B56C22100CF7A2C /* NumberPadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPadButton.swift; sourceTree = "<group>"; };
 		3FA0A5922B4DA952009B11AB /* MathBubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathBubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA0A5952B4DA952009B11AB /* MathBubbleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathBubbleApp.swift; sourceTree = "<group>"; };
 		3FA0A5972B4DA952009B11AB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 			children = (
 				3FA0A5952B4DA952009B11AB /* MathBubbleApp.swift */,
 				3FA0A5972B4DA952009B11AB /* ContentView.swift */,
+				3F47469A2B56BDAB00CF7A2C /* BottomSheet.swift */,
+				3F47469C2B56C22100CF7A2C /* NumberPadButton.swift */,
 				3FA0A5992B4DA953009B11AB /* Assets.xcassets */,
 				3FA0A59B2B4DA953009B11AB /* Preview Content */,
 			);
@@ -284,8 +290,10 @@
 				3F4746912B56AE5500CF7A2C /* MathBubbleModel.swift in Sources */,
 				3FA0A5982B4DA952009B11AB /* ContentView.swift in Sources */,
 				3F4746952B56AEB700CF7A2C /* Operations.swift in Sources */,
+				3F47469B2B56BDAB00CF7A2C /* BottomSheet.swift in Sources */,
 				3F4746932B56AE9000CF7A2C /* DifficultyLevel.swift in Sources */,
 				3FA0A5C02B4DA9B7009B11AB /* Bubble.swift in Sources */,
+				3F47469D2B56C22100CF7A2C /* NumberPadButton.swift in Sources */,
 				3FA0A5962B4DA952009B11AB /* MathBubbleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,25 +9,39 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var input = ""
-    @State var scale: CGFloat = 1.0
+    @State var showSheet: Bool = true
+    @ObservedObject var viewModel: MathBubbleViewModel
     
     var body: some View {
         VStack {
-            Bubble()
-                .scaleEffect(scale, anchor: .center)
-                .onAppear {
-                    withAnimation(Animation.easeIn(duration: 3.0)) {
-                        self.scale = 3.0
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { print("MAX")
-                    }
-                }
+            Circle()
+            
+            Spacer()
+            
+            Text("")
+                .font(.headline)
+                .padding(8)
+                .background(RoundedRectangle(cornerRadius: 4).stroke(Color.blue, lineWidth: 1).frame(minWidth: 150, maxWidth: 150))
+            
+            NumberPad(viewModel: viewModel)
+            
+            Spacer()
         }
         .padding()
+        .gesture(
+            DragGesture()
+                .onEnded { gesture in
+                    if gesture.translation.height < 0 {
+                        self.showSheet = true
+                    }
+                }
+        )
+        .sheet(isPresented: $showSheet) {
+            BottomSheet()
+        }
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(viewModel: MathBubbleViewModel())
 }

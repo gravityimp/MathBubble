@@ -9,56 +9,39 @@ import SwiftUI
 
 struct NumberPad: View {
     
-    @State var input: String = ""
+    @ObservedObject var viewModel: MathBubbleViewModel
     
     var body: some View {
         
-        Text("Solve it, quick!").font(.title)
-        
-        Spacer()
-        
-        Bubble()
-            .scaleEffect(2.0, anchor: .leading)
-            .animation(.linear(duration: 3), value: 1.0)
-        
-        Spacer()
-        
-        Text("INPUT")
-        
         VStack {
             HStack {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Text("1")
-                })
-                Button(action: {}, label: {
-                    Text("2")
-                })
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Text("3")
-                })
+                NumberPadButton(content: .constant("1"))
+                NumberPadButton(content: .constant("2"))
+                NumberPadButton(content: .constant("3"))
             }
             
             HStack {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Text("4")
-                })
-                Button(action: {}, label: {
-                    Text("5")
-                })
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Text("6")
-                })
+                NumberPadButton(content: .constant("4"))
+                NumberPadButton(content: .constant("5"))
+                NumberPadButton(content: .constant("6"))
             }
             
             HStack {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Text("7")
-                })
+                NumberPadButton(content: .constant("7"))
+                NumberPadButton(content: .constant("8"))
+                NumberPadButton(content: .constant("9"))
+            }
+            
+            HStack {
+                NumberPadButton(content: .constant("0"))
                 Button(action: {}, label: {
-                    Text("8")
-                })
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Text("9")
+                    Text("Clear")
+                        .font(.title)
+                        .frame(width: 100, height: 50)
+                        .foregroundColor(.white)
+                        .background(.gray)
+                        .cornerRadius(15.0)
+                        .shadow(color: Color.black, radius: 3, x: 1, y: 1)
                 })
             }
         }
@@ -66,5 +49,5 @@ struct NumberPad: View {
 }
 
 #Preview {
-    NumberPad()
+    NumberPad(viewModel: MathBubbleViewModel())
 }
