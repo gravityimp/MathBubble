@@ -12,14 +12,14 @@ struct BubbleModel {
     var b: Int
     var operation: Operations
     var result: Int = 0
-    var scale: Double = 1.0
-    var isTimedout: Bool = false
+    var spawned: Date = Date()
     
     init(a: Int, b: Int, operation: Operations) {
         self.a = a
         self.b = b
         self.operation = operation
         self.result = calculateResult()
+        self.spawned = Date()
     }
     
     public func getOperationString() -> String {
@@ -33,14 +33,6 @@ struct BubbleModel {
         case .divide:
             return "/"
         }
-    }
-    
-    public mutating func setScale(value: Double) {
-        self.scale = value
-    }
-    
-    public mutating func timeout() {
-        self.isTimedout = true
     }
     
     private func calculateResult() -> Int {

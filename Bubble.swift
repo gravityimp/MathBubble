@@ -9,12 +9,18 @@ import SwiftUI
 
 struct Bubble: View {
     
-    var bubbleModel: BubbleModel
-    var scaleUp: () -> ()
+    var SCALE_TIME: Double = 5.0
     
-    init(_ bubbleModel: BubbleModel, scaleUp: @escaping () -> ()) {
+    var bubbleModel: BubbleModel
+    var viewModel: MathBubbleViewModel
+    
+    // Probowalem na rozne sposoby, zadzilalo chociazby jakos - tylko tak :(
+    @State var scale: Double = 1.0
+    @State var hasStartedAnimation: Bool = false
+    
+    init(_ bubbleModel: BubbleModel, viewModel: MathBubbleViewModel) {
         self.bubbleModel = bubbleModel
-        self.scaleUp = scaleUp
+        self.viewModel = viewModel
     }
     
     var body: some View {
@@ -24,6 +30,19 @@ struct Bubble: View {
                 .foregroundColor(getCircleColor())
             Text("\(bubbleModel.a) \(bubbleModel.getOperationString()) \(bubbleModel.b)").foregroundColor(.white).fontWeight(.bold)
         }
+        .scaleEffect(self.scale)
+        .animation(.easeIn(duration: self.SCALE_TIME))
+        .onAppear {
+            if !hasStartedAnimation {
+                self.hasStartedAnimation = true
+                withAnimation {
+                    self.scale = 3.0
+                    
+                }
+            }
+            
+        }
+        
     }
     
     private func getCircleColor() -> Color {

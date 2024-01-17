@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State var showSheet: Bool = true
     @ObservedObject var viewModel: MathBubbleViewModel
     
     var body: some View {
@@ -19,20 +17,17 @@ struct ContentView: View {
                 .font(.title)
             
             ProgressView(value: Double(viewModel.health), total: Double(viewModel.maxHealth))
+                .frame(minHeight: 40)
+                .tint(.red)
             
             Text("Score: \(viewModel.score)")
             
             VStack {
                 viewModel.bubbleView
                     .id(UUID())
-                    .scaleEffect(self.viewModel.bubble.scale)
-                    .animation(.easeInOut(duration: 4.0))
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
-                            viewModel.timeoutBubble()
-                        }
-                    }
+                    
             }.frame(minHeight: 300, maxHeight: 300)
+                
             
             Spacer()
             
@@ -42,27 +37,19 @@ struct ContentView: View {
                 .background(RoundedRectangle(cornerRadius: 4).stroke(Color.blue, lineWidth: 1).frame(minWidth: 150, maxWidth: 150, minHeight: 50, maxHeight: 50))
             
             NumberPad(viewModel: viewModel).padding()
-        
         }
         .padding()
+        .sheet(isPresented: self.$viewModel.showSheet) {
+            BottomSheet(viewModel: viewModel, toggle: viewModel.toggleSheet)
+        }
         .gesture(
             DragGesture()
                 .onEnded { gesture in
                     if gesture.translation.height < 0 {
-                        self.showSheet = true
+                        self.viewModel.toggleSheet()
                     }
                 }
         )
-        .sheet(isPresented: $showSheet) {
-            BottomSheet(viewModel: viewModel, toggle: toggleSheet)
-        }
     }
     
-    func toggleSheet() {
-        self.showSheet.toggle()
-    }
-}
-
-#Preview {
-    ContentView(viewModel: MathBubbleViewModel())
 }

@@ -10,8 +10,10 @@ import Foundation
 class MathBubbleViewModel : ObservableObject {
     @Published var model = MathBubbleModel(difficulty: .easy)
     
+    var showSheet: Bool = true
+    
     init() {
-        model.newBubbleView(bubbleView: Bubble(self.bubble, scaleUp: self.scaleUpBubble))
+        newBubbleView()
     }
 
     var bubble: BubbleModel {
@@ -41,28 +43,38 @@ class MathBubbleViewModel : ObservableObject {
     var input: String {
         return model.input
     }
+    
 
     func clearInput() {
         model.clearInput()
     }
     
+    func toggleSheet() {
+        self.showSheet.toggle()
+    }
+    
+    func toggleSheetOn() {
+        self.showSheet = true
+    }
+    
     func handleInput(input: String) {
         model.addInput(input: input)
         if model.checkBubbleResult() {
-            self.model.newBubbleView(bubbleView: Bubble(self.bubble, scaleUp: self.scaleUpBubble))
+            newBubbleView()
+        } else {
+            if self.health <= 0 {
+                toggleSheet()
+            }
         }
     }
+
     
-    func scaleUpBubble() {
-        self.model.bubble?.setScale(value: 3.0)
-    }
-    
-    func timeoutBubble() {
-        model.bubble?.timeout()
+    func newBubbleView() {
+        model.newBubbleView(bubbleView: Bubble(self.bubble, viewModel: self))
     }
 
     func restart(difficulty: DifficultyLevel) {
       model = MathBubbleModel(difficulty: difficulty)
-      model.newBubbleView(bubbleView: Bubble(self.bubble, scaleUp: self.scaleUpBubble))
+      newBubbleView()
     }
 }

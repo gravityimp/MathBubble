@@ -45,7 +45,10 @@ struct MathBubbleModel {
     }
     
     public mutating func popBubble(success: Bool) -> Bool {
-        if !bubble!.isTimedout {
+        let date = Date()
+        let calendar = Calendar.current
+        let difference = calendar.dateComponents([.second], from: self.bubble!.spawned, to: date).second
+        if difference! < 5 {
             self.score += self.bubble!.result
         } else {
             self.health -= 10
@@ -65,15 +68,12 @@ struct MathBubbleModel {
             clearInput()
             return true
         }
+        
         return false
     }
     
     public mutating func newBubbleView(bubbleView: Bubble) {
         self.bubbleView = bubbleView
-    }
-    
-    public mutating func scaleUp() {
-        self.bubble?.setScale(value: 3.0)
     }
     
     private mutating func getMathTask() {

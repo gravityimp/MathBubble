@@ -23,6 +23,7 @@
 		3FA0A5B32B4DA953009B11AB /* MathBubbleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0A5B22B4DA953009B11AB /* MathBubbleUITestsLaunchTests.swift */; };
 		3FA0A5C02B4DA9B7009B11AB /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0A5BF2B4DA9B7009B11AB /* Bubble.swift */; };
 		3FA0A5C22B4DAD70009B11AB /* NumberPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0A5C12B4DAD70009B11AB /* NumberPad.swift */; };
+		3FDBA8442B583E9100F083CC /* DifficultyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDBA8432B583E9100F083CC /* DifficultyButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		3FA0A5B22B4DA953009B11AB /* MathBubbleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathBubbleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3FA0A5BF2B4DA9B7009B11AB /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
 		3FA0A5C12B4DAD70009B11AB /* NumberPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPad.swift; sourceTree = "<group>"; };
+		3FDBA8432B583E9100F083CC /* DifficultyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				3FA0A5952B4DA952009B11AB /* MathBubbleApp.swift */,
 				3FA0A5972B4DA952009B11AB /* ContentView.swift */,
 				3F47469A2B56BDAB00CF7A2C /* BottomSheet.swift */,
+				3FDBA8432B583E9100F083CC /* DifficultyButton.swift */,
 				3F47469C2B56C22100CF7A2C /* NumberPadButton.swift */,
 				3FA0A5992B4DA953009B11AB /* Assets.xcassets */,
 				3FA0A59B2B4DA953009B11AB /* Preview Content */,
@@ -292,6 +295,7 @@
 				3F4746952B56AEB700CF7A2C /* Operations.swift in Sources */,
 				3F47469B2B56BDAB00CF7A2C /* BottomSheet.swift in Sources */,
 				3F4746932B56AE9000CF7A2C /* DifficultyLevel.swift in Sources */,
+				3FDBA8442B583E9100F083CC /* DifficultyButton.swift in Sources */,
 				3FA0A5C02B4DA9B7009B11AB /* Bubble.swift in Sources */,
 				3F47469D2B56C22100CF7A2C /* NumberPadButton.swift in Sources */,
 				3FA0A5962B4DA952009B11AB /* MathBubbleApp.swift in Sources */,

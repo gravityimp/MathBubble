@@ -12,6 +12,14 @@ struct BottomSheet: View {
     @ObservedObject var viewModel: MathBubbleViewModel
     let toggle: () -> ()
     
+    var infoBox: some View {
+        if self.viewModel.health <= 0 {
+            Text("Final score: \(self.viewModel.score)").font(.title3).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+        } else {
+            Text("Use calculator if you want").font(.headline)
+        }
+    }
+    
     var body: some View {
         VStack {
             
@@ -32,27 +40,12 @@ struct BottomSheet: View {
                         )
                     }
             
+            infoBox
+            
+            Spacer()
             
             Text("Choose difficulty")
                 .font(.largeTitle)
-            Button(action: {
-                toggle()
-                viewModel.restart(difficulty: .easy)
-            }, label: {
-                Text("Easy")
-            })
-            Button(action: {
-                toggle()
-                viewModel.restart(difficulty: .medium)
-            }, label: {
-                Text("Medium")
-            })
-            Button(action: {
-                toggle()
-                viewModel.restart(difficulty: .hard)
-            }, label: {
-                Text("Hard")
-            })
 
             DifficultyButton(title: "Easy", color: .green) {
                 toggle()
