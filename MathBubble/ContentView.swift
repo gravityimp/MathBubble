@@ -24,6 +24,7 @@ struct ContentView: View {
             
             VStack {
                 viewModel.bubbleView
+                    .id(UUID())
                     .scaleEffect(self.viewModel.bubble.scale)
                     .animation(.easeInOut(duration: 4.0))
                     .onAppear {

@@ -53,6 +53,21 @@ struct BottomSheet: View {
             }, label: {
                 Text("Hard")
             })
+
+            DifficultyButton(title: "Easy", color: .green) {
+                toggle()
+                viewModel.restart(difficulty: .easy)
+            }
+                
+            DifficultyButton(title: "Medium", color: .blue) {
+                toggle()
+                viewModel.restart(difficulty: .medium)
+            }
+                
+            DifficultyButton(title: "Hard", color: .red) {
+                toggle()
+                viewModel.restart(difficulty: .hard)
+            }
             
             Spacer()
         }

@@ -40,7 +40,3 @@ struct Bubble: View {
     }
     
 }
-//
-//#Preview {
-//    Bubble()
-//}

@@ -48,7 +48,7 @@ struct MathBubbleModel {
         if !bubble!.isTimedout {
             self.score += self.bubble!.result
         } else {
-            self.health -= self.bubble!.result
+            self.health -= 10
             if health <= 0 {
                 health = 0
                 return false

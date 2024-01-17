@@ -14,9 +14,9 @@ class MathBubbleViewModel : ObservableObject {
         model.newBubbleView(bubbleView: Bubble(self.bubble, scaleUp: self.scaleUpBubble))
     }
 
-  var bubble: BubbleModel {
+    var bubble: BubbleModel {
       return model.bubble!
-  }
+    }
     
     var bubbleView: Bubble? {
         return model.bubbleView
@@ -26,13 +26,13 @@ class MathBubbleViewModel : ObservableObject {
         return "\(model.health) / \(model.maxHealth)"
     }
 
-  var score: Int {
-    return model.score
-  }
+    var score: Int {
+      return model.score
+    }
 
-  var health: Int {
-    return model.health
-  }
+    var health: Int {
+      return model.health
+    }
     
     var maxHealth: Int {
         return model.maxHealth
@@ -61,8 +61,8 @@ class MathBubbleViewModel : ObservableObject {
         model.bubble?.timeout()
     }
 
-  func restart(difficulty: DifficultyLevel) {
-    model = MathBubbleModel(difficulty: difficulty)
+    func restart(difficulty: DifficultyLevel) {
+      model = MathBubbleModel(difficulty: difficulty)
       model.newBubbleView(bubbleView: Bubble(self.bubble, scaleUp: self.scaleUpBubble))
-  }
+    }
 }
